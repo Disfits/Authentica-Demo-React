@@ -1,22 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  function handleSignIn(params) {
+    //Sign In code goes here
+  }
+  function handleSignUp(params) {
+    //Sign Up code goes here
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="card">
+          <h3>NFAuth Demo</h3>
+          <button className="secondary" onClick={handleSignIn}>
+            Sign in using NFAuth
+          </button>
+          <button className="primary" onClick={handleSignUp}>
+            Sign up using NFAuth
+          </button>
+        </div>
       </header>
     </div>
   );
