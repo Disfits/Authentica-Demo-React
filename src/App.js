@@ -1,11 +1,12 @@
 import "./App.css";
 import getWeb3 from "./web3";
 import { useEffect, useState } from "react";
-
+import abi from "./ABI.json";
 function App() {
   const [account, setAccount] = useState();
   const [loadState, setLoadState] = useState("loading");
   const [web3, setWeb3] = useState();
+  const [contract,setContract] = useState();
 
   const conenctWallet = () => {
     getWeb3()
@@ -18,6 +19,11 @@ function App() {
         setLoadState("error");
         console.log(err);
       });
+
+      //To Do 
+      //Define contract as web3.eth.Contract(abi,contract address)
+      //Need to deploy contract to get address
+      
   };
   useEffect(() => {
     conenctWallet();
@@ -25,9 +31,17 @@ function App() {
 
   function handleSignIn(params) {
     //Sign In code goes here
+    //Pass Org Id and Token Id
+    contract.methods.signIn(orgnisationId,tokenId).call((err,result)=>{console.log(result)}) 
+
+    //Handle error and result
   }
   function handleSignUp(params) {
     //Sign Up code goes here
+    //Pass account URI and organisation ID
+    contract.methods.signUp(accountURI,orgnisationId).call((err,result)=>{console.log(result)})
+  
+    //Handle error and result
   }
   return (
     <div className="App">
