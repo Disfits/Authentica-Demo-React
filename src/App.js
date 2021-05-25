@@ -32,14 +32,14 @@ function App() {
   function handleSignIn(params) {
     //Sign In code goes here
     //Pass Org Id and Token Id
-    contract.methods.signIn(orgnisationId,tokenId).call((err,result)=>{console.log(result)}) 
+    contract.methods.signIn(orgnisationId,tokenId).send((err,result)=>{console.log(result)}) 
 
     //Handle error and result
   }
   function handleSignUp(params) {
     //Sign Up code goes here
     //Pass account URI and organisation ID
-    contract.methods.signUp(accountURI,orgnisationId).call((err,result)=>{console.log(result)})
+    contract.methods.signUp(accountURI,orgnisationId).send((err,result)=>{console.log(result)})
   
     //Handle error and result
   }
