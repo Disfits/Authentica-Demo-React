@@ -32,7 +32,7 @@ function App() {
   function handleSignIn(params) {
     //Sign In code goes here
     //Pass Org Id and Token Id
-    contract.methods.signIn(orgnisationId,tokenId).send((err,result)=>{console.log(result)}) 
+    contract.methods.signIn(orgnisationId,tokenId).call((err,result)=>{console.log(result)}) 
 
     //Handle error and result
   }
