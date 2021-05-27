@@ -29,7 +29,7 @@ function App() {
     if (web3 && account) {
       const newContract = new web3.eth.Contract(
         abi,
-        "0xef5efcf2a2c60137270336ea1a23f55662cee766",
+        "0x17B5e878415403f86b9EB490416711670C95f97d",
         {
           from: account.toString(),
         }
@@ -43,12 +43,12 @@ function App() {
   }, []);
 
   function handleSignIn(params) {
-    //Sign In code goes here
-    //Pass Org Id and Token Id
-    // contract.methods.signIn(organisationId, tokenId).call((err, result) => {
-    //   console.log(result);
-    // });
-    //Handle error and result
+    // Sign In code goes here
+    // Pass Org Id and Token Id
+    contract.methods.signIn(organisationId).call((err, result) => {
+      console.log(result);
+    });
+    // Handle error and result
   }
   function handleSignUp(params) {
     //Sign Up code goes here
