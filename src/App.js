@@ -6,9 +6,10 @@ function App() {
   const [account, setAccount] = useState();
   const [loadState, setLoadState] = useState("loading");
   const [web3, setWeb3] = useState();
-  const [contract,setContract] = useState();
+  const [contract, setContract] = useState();
+  const organisationId = 42069;
 
-  const conenctWallet = () => {
+  const connectWallet = () => {
     getWeb3()
       .then((res) => {
         setWeb3(res);
@@ -19,28 +20,45 @@ function App() {
         setLoadState("error");
         console.log(err);
       });
-
-      //To Do 
-      //Define contract as web3.eth.Contract(abi,contract address)
-      //Need to deploy contract to get address
-      
+    //To Do
+    //Define contract as web3.eth.Contract(abi,contract address)
+    //Need to deploy contract to get addressa
   };
+
   useEffect(() => {
-    conenctWallet();
+    if (web3 && account) {
+      const newContract = new web3.eth.Contract(
+        abi,
+        "0xef5efcf2a2c60137270336ea1a23f55662cee766",
+        {
+          from: account.toString(),
+        }
+      );
+      setContract(newContract);
+    }
+  }, [account]);
+
+  useEffect(() => {
+    connectWallet();
   }, []);
 
   function handleSignIn(params) {
     //Sign In code goes here
     //Pass Org Id and Token Id
-    contract.methods.signIn(orgnisationId,tokenId).call((err,result)=>{console.log(result)}) 
-
+    // contract.methods.signIn(organisationId, tokenId).call((err, result) => {
+    //   console.log(result);
+    // });
     //Handle error and result
   }
   function handleSignUp(params) {
     //Sign Up code goes here
     //Pass account URI and organisation ID
-    contract.methods.signUp(accountURI,orgnisationId).send((err,result)=>{console.log(result)})
-  
+    contract.methods
+      .signUp("test arpit", organisationId)
+      .send((err, result) => {
+        console.log(result);
+        console.log(err);
+      });
     //Handle error and result
   }
   return (
@@ -62,7 +80,7 @@ function App() {
                 Wallet Not connected.{" "}
                 <span
                   onClick={() => {
-                    conenctWallet();
+                    connectWallet();
                   }}
                   className="connect-text"
                 >
