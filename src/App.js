@@ -2,6 +2,8 @@ import "./App.css";
 import getWeb3 from "./web3";
 import { useEffect, useState } from "react";
 import abi from "./ABI.json";
+import ipfs from "./ipfs";
+
 function App() {
   const [account, setAccount] = useState();
   const [loadState, setLoadState] = useState("loading");
@@ -41,6 +43,16 @@ function App() {
   useEffect(() => {
     connectWallet();
   }, []);
+
+  function storeJSON(params){
+    //Pass metadata JSON
+    (async () => {
+      const metaData = JSON.stringify(JSONObject);
+      const cid = await ipfs.add(metaData);
+      console.log("IPFS cid:", cid);
+    
+  })()
+}
 
   function handleSignIn(params) {
     // Sign In code goes here
