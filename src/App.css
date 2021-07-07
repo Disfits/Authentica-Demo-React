@@ -37,7 +37,7 @@ button.secondary {
 
 .card {
   border-radius: 10px;
-  max-width: 350px;
+  width: 350px;
   background-color: #00000055;
   padding-bottom: 50px;
 }

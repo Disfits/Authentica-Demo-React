@@ -1,5 +1,18 @@
 [
   {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "projectID",
+        "type": "uint256"
+      }
+    ],
+    "name": "addProject",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "stateMutability": "nonpayable",
     "type": "constructor"
@@ -144,31 +157,13 @@
   {
     "inputs": [
       {
-        "internalType": "uint256",
-        "name": "organisationId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "projectId",
-        "type": "uint256"
-      }
-    ],
-    "name": "setProjectId",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "accountURI",
         "type": "string"
       },
       {
         "internalType": "uint256",
-        "name": "organisationId",
+        "name": "ProjectID",
         "type": "uint256"
       }
     ],
@@ -234,25 +229,6 @@
       }
     ],
     "name": "balanceOf",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "organisationId",
-        "type": "uint256"
-      }
-    ],
-    "name": "currentOrgProject",
     "outputs": [
       {
         "internalType": "uint256",
@@ -339,19 +315,13 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-      }
-    ],
-    "name": "projectOfToken",
+    "inputs": [],
+    "name": "projectOfUser",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "uint256[]",
         "name": "",
-        "type": "uint256"
+        "type": "uint256[]"
       }
     ],
     "stateMutability": "view",
@@ -361,7 +331,7 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "organisationId",
+        "name": "ProjectID",
         "type": "uint256"
       }
     ],
@@ -371,11 +341,6 @@
         "internalType": "string",
         "name": "",
         "type": "string"
-      },
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -421,7 +386,7 @@
         "type": "uint256"
       }
     ],
-    "name": "tokenAccessOrg",
+    "name": "tokenProject",
     "outputs": [
       {
         "internalType": "uint256",
